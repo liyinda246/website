@@ -250,7 +250,7 @@ except that it will evict pods from nodes that cease to satisfy the pods' node a
 -->
 
 目前有两种类型的节点亲和，分别为 `requiredDuringSchedulingIgnoredDuringExecution` 和
-`preferredDuringSchedulingIgnoredDuringExecution`。你可以视它们为“硬”和“软”，意思是，前者指定了将 pod 调度到一个节点上*必须*满足的规则（就像 `nodeSelector` 但使用更具表现力的语法），后者指定调度器将尝试执行单不能保证的*偏好*。名称的“IgnoredDuringExecution”部分意味着，类似于 `nodeSelector` 的工作原理，如果节点的标签在运行时发生变更，从而不再满足 pod 上的亲和规则，那么 pod 将仍然继续在该节点上运行。将来我们计划提供 `requiredDuringSchedulingRequiredDuringExecution`，它将类似于 `requiredDuringSchedulingIgnoredDuringExecution`，除了它会将 pod 从不再满足 pod 的节点亲和要求的节点上驱逐。
+`preferredDuringSchedulingIgnoredDuringExecution`。你可以视它们为“硬”和“软”，意思是，前者指定了将 pod 调度到一个节点上*必须*满足的规则（就像 `nodeSelector` 但使用更具表现力的语法），后者指定调度器将尝试执行但不能保证的*偏好*。名称的“IgnoredDuringExecution”部分意味着，类似于 `nodeSelector` 的工作原理，如果节点的标签在运行时发生变更，从而不再满足 pod 上的亲和规则，那么 pod 将仍然继续在该节点上运行。将来我们计划提供 `requiredDuringSchedulingRequiredDuringExecution`，它将类似于 `requiredDuringSchedulingIgnoredDuringExecution`，除了它会将 pod 从不再满足 pod 的节点亲和要求的节点上驱逐。
 
 <!--
 Thus an example of `requiredDuringSchedulingIgnoredDuringExecution` would be "only run the pod on nodes with Intel CPUs"
